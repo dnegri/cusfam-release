@@ -1,0 +1,5 @@
+<map id="dnegri::cusfam::dll::StartupOperation" name="dnegri::cusfam::dll::StartupOperation">
+<area shape="rect" id="Node000001" title="Reactor startup simulation class (inherits from FlexibleOperation)" alt="" coords="6,94,135,135"/>
+<area shape="rect" id="Node000002" href="$classdnegri_1_1cusfam_1_1dll_1_1_flexible_operation.html" title="Flexible power maneuvering operation class." alt="" coords="5,5,136,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,62,73,94,68,94,68,62"/>
+</map>
