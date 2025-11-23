@@ -142,19 +142,20 @@ enum ECPOption : int {
  * including axial and radial node distributions and physical dimensions.
  */
 struct CUSFAM_API CusfamGeometry {
-    int            nz;     ///< Number of axial nodes
-    int            kbc;    ///< Bottom plane of active fuel
-    int            kec;    ///< Top plane of active fuel
-    int            nxa;    ///< Number of radial assemblies in X direction
-    int            nya;    ///< Number of radial assemblies in Y direction
-    int            nxya;   ///< Total number of radial assemblies (nxa * nya)
-    int            nyfa;   ///< Number of fuel assembly rows in Y direction
-    vector<int>    nxsa;   ///< Starting X indices for each assembly row
-    vector<int>    nxea;   ///< Ending X indices for each assembly row
-    vector<int>    nxsfa;  ///< Starting fuel X indices for each fuel assembly row
-    vector<int>    nxefa;  ///< Ending fuel X indices for each fuel assembly row
-    double         height; ///< Total core height in centimeters
-    vector<double> hz;     ///< Axial node heights in centimeters
+    int                 nz;     ///< Number of axial nodes
+    int                 kbc;    ///< Bottom plane of active fuel
+    int                 kec;    ///< Top plane of active fuel
+    int                 nxa;    ///< Number of radial assemblies in X direction
+    int                 nya;    ///< Number of radial assemblies in Y direction
+    int                 nxya;   ///< Total number of radial assemblies (nxa * nya)
+    int                 nyfa;   ///< Number of fuel assembly rows in Y direction
+    vector<int>         nxsa;   ///< Starting X indices for each assembly row
+    vector<int>         nxea;   ///< Ending X indices for each assembly row
+    vector<int>         nxsfa;  ///< Starting fuel X indices for each fuel assembly row
+    vector<int>         nxefa;  ///< Ending fuel X indices for each fuel assembly row
+    vector<vector<int>> fatola; ///< Mapping from fuel assembly indices to global assembly indices
+    double              height; ///< Total core height in centimeters
+    vector<double>      hz;     ///< Axial node heights in centimeters
 };
 
 /**

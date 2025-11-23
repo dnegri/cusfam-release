@@ -73,18 +73,17 @@ void testInitialization() {
         int la = 0;
         for (int ja = 0; ja < geometry.nya; ++ja) {
             for (int ia = geometry.nxsa[ja]; ia < geometry.nxea[ja]; ++ia) {
-                ++la;
                 cout << setw(4) << la;
+                ++la;
             }
             cout << endl;
         }
 
         cout << "  - geometry (w/o reflector) : " << endl;
 
-        la = 0;
         for (int ja = 0; ja < geometry.nyfa; ++ja) {
             for (int ia = geometry.nxsfa[ja]; ia < geometry.nxefa[ja]; ++ia) {
-                ++la;
+                int la = geometry.fatola[ja][ia];
                 cout << setw(4) << la;
             }
             cout << endl;
