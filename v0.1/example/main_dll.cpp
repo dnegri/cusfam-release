@@ -47,6 +47,14 @@ void testInitialization() {
 
         cout << "✓ Cusfam initialized successfully" << endl;
 
+        vector<double> burnupPoints = {0.0, 50.0, 500.0, 1000.0, 2000.0}; ///< Burnup points in MWD/MTU
+        cusfam.setBurnupPoints(burnupPoints);
+        cout << "✓ Burnup points set successfully" << endl;
+
+        SteadyOption option;
+        cusfam.setBurnup("./run/skn3/c01/S301NOMDEP", burnupPoints[0], option);
+        cout << "✓ Burnup state set to " << burnupPoints[0] << " MWD/MTU" << endl;
+
         // Configure basic settings
         cusfam.setLogFile("cusfam_dll_test.log", 1); ///< Set log file and level
         cusfam.setIterationLimit(100, 1e-5);         ///< Set max iterations and convergence criteria
@@ -60,6 +68,28 @@ void testInitialization() {
         cout << "  - nz: " << geometry.nz << endl;                  ///< Number of axial nodes
         cout << "  - nxya: " << geometry.nxya << endl;              ///< Number of radial assemblies
         cout << "  - height: " << geometry.height << " cm" << endl; ///< Core height
+        cout << "  - geometry (with reflector) : " << endl;
+
+        int la = 0;
+        for (int ja = 0; ja < geometry.nya; ++ja) {
+            for (int ia = geometry.nxsa[ja]; ia < geometry.nxea[ja]; ++ia) {
+                ++la;
+                cout << setw(4) << la;
+            }
+            cout << endl;
+        }
+
+        cout << "  - geometry (w/o reflector) : " << endl;
+
+        la = 0;
+        for (int ja = 0; ja < geometry.nyfa; ++ja) {
+            for (int ia = geometry.nxsfa[ja]; ia < geometry.nxefa[ja]; ++ia) {
+                ++la;
+                cout << setw(4) << la;
+            }
+            cout << endl;
+        }
+
     } catch (const exception& e) {
         cout << "✗ Error during initialization test: " << e.what() << endl;
     }
